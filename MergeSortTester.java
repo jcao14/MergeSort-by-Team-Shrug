@@ -1,3 +1,4 @@
+import merge.*;
 /*======================================
   class MergeSortTester
   ALGORITHM:
