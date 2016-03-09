@@ -18,6 +18,72 @@
 public class MergeSortTester 
 {
 
+    private static int[] merge( int[] a, int[] b ) 
+    {
+        int[] output = new int[a.length + b.length];
+        int counterA = 0;
+        int counterB = 0;
+        int index = 0;
+        
+        while ( ((counterA) < (a.length)) && ( (counterB) < (b.length) )){
+            if (a[counterA] < b[counterB]){
+                output[index] = a[counterA];
+                counterA ++;
+                index ++;
+            }
+            
+            else{
+                output[index] = b[counterB];
+                counterB ++;
+                index ++;
+            }
+        }
+        
+        if (counterA >= a.length){
+            for (int i = counterB; i < b.length; i++){
+                output [index]= b[i];
+                index ++;
+            }
+        }
+        
+        if (counterB >= b.length){
+            for (int i = counterA; i < a.length; i++){
+                output [index]= a[i];
+                index ++;
+            }
+        }
+        return output;
+    }//end merge()
+    
+
+
+    /******************************************************
+     * int[] sort(int[]) 
+     * Sorts input array using mergesort algorithm
+     * Returns sorted version of input array (ascending)
+     ******************************************************/
+    public static int[] sort( int[] arr ) 
+    {
+        if (arr.length == 1){
+            return arr;
+        }
+        
+        else{
+            int size = (int)(arr.length /2);
+            int[] a = new int[size];
+            int[] b = new int[arr.length - size];
+            
+            for (int i = 0; i < size; i++){
+                a[i] = arr[i];
+            }
+            
+            for (int i = size; i < arr.length; i++){
+                b[i - size] = arr[i];
+            }
+            return  merge(sort(a), sort(b));
+        }
+
+    }//end sort()
     /******************************
      * execution time analysis 
      * <INSERT YOUR DESCRIPTION HERE OF 
