@@ -55,13 +55,6 @@ public class MergeSortTester
         return output;
     }//end merge()
     
-
-
-    /******************************************************
-     * int[] sort(int[]) 
-     * Sorts input array using mergesort algorithm
-     * Returns sorted version of input array (ascending)
-     ******************************************************/
     public static int[] sort( int[] arr ) 
     {
         if (arr.length == 1){
